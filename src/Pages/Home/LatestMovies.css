@@ -1,0 +1,32 @@
+/* css */
+.LatestMovies {
+  margin-top: 2em;
+}
+
+.LatestMoviesTitle {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-family: Poppins, sans-serif;
+}
+.box {
+  background: #333333;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  cursor: pointer;
+  margin: 0.5em;
+}
+.box i {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 2px;
+}
+.box:hover {
+  transition: 0.5s;
+  background: rgb(210, 6, 6);
+  color: #f4eaea;
+}
