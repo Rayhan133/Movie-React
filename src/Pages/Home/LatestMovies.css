@@ -10,6 +10,9 @@
   margin-bottom: 0.5em;
   font-family: Poppins, sans-serif;
 }
+.owl-dots {
+  display: none;
+}
 .box {
   background: #333333;
   height: 30px;

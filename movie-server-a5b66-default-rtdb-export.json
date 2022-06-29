@@ -1,0 +1,50 @@
+{
+  "data": "hello",
+  "movies": {
+    "bangladesh": {
+      "dev": [
+        {
+          "image": "image",
+          "name": "test",
+          "url": "url"
+        },
+        {
+          "image": "image",
+          "name": "name",
+          "url": "url"
+        }
+      ]
+    },
+    "kolkata": {
+      "dev": [
+        {
+          "image": "image",
+          "name": "test",
+          "url": "url"
+        },
+        {
+          "image": "image",
+          "name": "name",
+          "url": "url"
+        }
+      ]
+    }
+  },
+  "slider": [
+    {
+      "imageUrl": "https://i.ibb.co/BL77qCd/War.jpg",
+      "title": "War (2019)",
+      "url": "https://drive.google.com/file/d/19fjH3wcJca1TAeLEdSm9VEpIqz__HVQz/view"
+    },
+    {
+      "imageUrl": "https://i.ibb.co/XJhkhkD/images-ottplay-com-images-Bojhena-Shey-Bojhena-2012-movie-photo-1-jpg.jpg",
+      "title": "Bojhena-Shey-Bojhena (2012)",
+      "url": "https://drive.google.com/file/d/1jOzz4j8l0kDSOkVbqM0PDwaZjslh244I/view"
+    },
+    {
+      "imageUrl": "https://i.ibb.co/4fLBR8n/Prabhas-Baahubali-Movie-Wallpapers-Ultra-HD-1.jpg",
+      "title": "Baahubali 2: The Conclusion (2017)",
+      "url": "https://drive.google.com/file/d/12Qu15SCxz8UAMVQmPoXVspBHaJjS0j5P/view"
+    }
+  ]
+}
