@@ -1,46 +1,31 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import getMovieData from "../../getMovieDataApi";
 
 export default function Slider() {
   const [sliders, setSliders] = useState([]);
   const [activeSlider, setActiveSlider] = useState([]);
-
-  const getData = () => {
-    fetch(
-      "https://movie-server-a5b66-default-rtdb.firebaseio.com/slider.json",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (sliderData) {
-        setActiveSlider(sliderData[0]);
-        let array = [];
-        for (let index = 1; index < sliderData.length; index++) {
-          const element = sliderData[index];
-          array.push(element);
-        }
-        setSliders(array);
-      });
-  };
+  const { data } = useQuery("data", () => getMovieData());
   useEffect(() => {
-    getData();
-  }, []);
+    setActiveSlider(data.slider[0]);
+    let array = [];
+    for (let index = 1; index < data.slider.length; index++) {
+      const element = data.slider[index];
+      array.push(element);
+    }
+    setSliders(array);
+  }, [data]);
 
   return (
     <>
       <div
         id="carouselExampleCaptions"
-        class="carousel slide"
+        className="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-inner">
+        <div className="carousel-inner">
           <div
-            class="carousel-item active"
+            className="carousel-item active"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Watch Now"
@@ -48,35 +33,36 @@ export default function Slider() {
             <a href={activeSlider.url} target="_blank" rel="noreferrer">
               <img
                 src={activeSlider.imageUrl}
-                class="d-block w-100"
+                className="d-block w-100"
                 alt={activeSlider.title}
               />
             </a>
-            <div class="carousel-caption d-none d-md-block">
+            <div className="carousel-caption d-none d-md-block">
               <h5>{activeSlider.title}</h5>
             </div>
           </div>
-          {sliders.map((item, index) => {
+
+          {sliders.map((item) => {
             return (
               <>
                 <div
-                  key={index}
+                  key={item.id}
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Watch Now"
-                  class="carousel-item"
+                  className="carousel-item {item.id == 1? 'active': ''}"
                   style={{ height: "500px!important", width: "100%" }}
                 >
                   <a href={item.url} target="_blank" rel="noreferrer">
                     <img
                       src={item.imageUrl}
-                      class="d-block w-100"
+                      className="d-block w-100"
                       alt={item.title}
                       width="1500"
                       border="0"
                     />
                   </a>
-                  <div class="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption d-none d-md-block">
                     <h5>{item.title}</h5>
                   </div>
                 </div>
@@ -85,22 +71,28 @@ export default function Slider() {
           })}
         </div>
         <button
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
         </button>
         <button
-          class="carousel-control-next"
+          className="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
         </button>
       </div>
     </>
