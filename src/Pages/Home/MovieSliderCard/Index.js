@@ -1,12 +1,24 @@
+import { Autoplay, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+import SliderCard from "./SliderCard";
 import "./style.css";
 
-export default function MovieSliderCard({ title }) {
+// import required modules
+export default function MovieSliderCard({ title, data }) {
   const previousSlider = () => {
-    const prev = document.querySelector(".owl-prev");
+    const prev = document.querySelector(".swiper-button-prev");
     prev.click();
   };
   const nextSlider = () => {
-    const next = document.querySelector(".owl-next");
+    const next = document.querySelector(".swiper-button-next");
     next.click();
   };
 
@@ -16,32 +28,35 @@ export default function MovieSliderCard({ title }) {
         <h1 className="LatestMoviesTitle">{title}</h1>
         <div className="mt-2 d-flex">
           <div className="box" onClick={previousSlider}>
-            <i class="fa-solid fa-angle-left"></i>
+            <i className="fa-solid fa-angle-left"></i>
           </div>
           <div className="box" onClick={nextSlider}>
-            <i class="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-angle-right"></i>
           </div>
         </div>
       </div>
       <hr />
-      <div className="">
-        <div class="owl-carousel owl-theme">
-          <div class="item">
-            <h4>1</h4>
-          </div>
-          <div class="item">
-            <h4>2</h4>
-          </div>
-          <div class="item">
-            <h4>3</h4>
-          </div>
-          <div class="item">
-            <h4>4</h4>
-          </div>
-          <div class="item">
-            <h4>5</h4>
-          </div>
-        </div>
+      <div className="mt-3">
+        <Swiper
+          navigation={true}
+          autoplay={true}
+          modules={[Navigation, Autoplay]}
+          spaceBetween={10}
+          slidesPerView={4}
+          loop={true}
+          autoplaySpeed={1000}
+          className="mySwiper"
+        >
+          {data.map((item) => {
+            return (
+              <div key={item.id}>
+                <SwiperSlide>
+                  <SliderCard item={item} />
+                </SwiperSlide>
+              </div>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );
