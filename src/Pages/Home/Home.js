@@ -9,6 +9,7 @@ export default function Home() {
       <Suspense fallback={<Loading />}>
         <Slider />
         <LatestMovies />
+        {/* <OldMovies /> */}
       </Suspense>
     </div>
   );

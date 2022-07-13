@@ -65,16 +65,26 @@ export default function SliderCard({ item }) {
               className="flex items-center justify-center mt-3"
               data-v-d11294c2=""
             >
-              <a
-                href={item.url}
-                target="_blank"
+              {/* href={item.url} */}
+              <button
                 className="watchNowBtn text-[14px] inline-block rounded-[3px] transition-all duration-300 
                 py-[6px] px-3 bg-[#f4181c] text-white font-medium hover:bg-white leading-[1]"
                 data-v-d11294c2=""
                 rel="noreferrer"
+                data-modal-toggle="watch-Now-Modal"
               >
                 Watch Now
-              </a>
+              </button>
+
+              {/* <iframe
+                width="1350"
+                height="480"
+                src={item.url}
+                title={item.title}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe> */}
             </div>
           </div>
         </div>

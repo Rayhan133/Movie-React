@@ -26,6 +26,7 @@ export default function MovieSliderCard({ title, data }) {
     <div className="LatestMovies container text-white ">
       <div className="d-flex justify-content-between LatestMoviesTitleSection">
         <h1 className="LatestMoviesTitle">{title}</h1>
+
         <div className="mt-2 d-flex">
           <div className="box" onClick={previousSlider}>
             <i className="fa-solid fa-angle-left"></i>
@@ -35,6 +36,7 @@ export default function MovieSliderCard({ title, data }) {
           </div>
         </div>
       </div>
+
       <hr />
       <div className="mt-3">
         <Swiper
